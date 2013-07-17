@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+	before_filter :authenticate_admin!, only: [:new, 
+		:create, :edit, :update, :destroy]
 
 	def index
 		@items = Items.all
